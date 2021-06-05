@@ -1,6 +1,7 @@
 body {
     overflow-x: hidden;
     font-family: 'Asap', sans-serif;
+    background-color: #09161f;
 }
 
 h1 {
@@ -9,7 +10,7 @@ h1 {
 
 h3 {
     font-size: 48px;
-    margin: 45px 0;
+    margin: 120px 0;
     color: #ffff;
 }
 
@@ -22,6 +23,7 @@ h2 {
 h5 {
     margin-bottom: 20px;
 }
+
 
 .flex-content {
     display: flex;
@@ -43,8 +45,25 @@ main {
     height: 46vw;
     display: flex;
     flex-direction: column;
-
 }
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+.row img {
+    width: 45%;
+}
+
+
+.col-lg-2 img {
+    display: none;
+}
+
 
 .page-information img {
     width: 45px;
@@ -80,20 +99,5 @@ main {
     padding: 2%;
     text-align: center;
 }
-
-.row {
-    padding: 2%;
-    text-align: center;
-    background-color: #09161f;
-}
-
-.row img {
-    transition: width 2s;
-}
-
-.row img:hover {
-    width: 105%;
-}
-
 
 

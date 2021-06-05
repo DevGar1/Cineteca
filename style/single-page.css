@@ -1,0 +1,63 @@
+body {
+    overflow-x: hidden;
+    font-family: 'Asap', sans-serif;
+    background-color: #09161f;
+}
+
+header {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.nav-menu {
+    width: 90%;
+    justify-content: space-between;
+}
+
+.account {
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-information {
+    width: 1%;
+}
+
+.account a {
+    margin-right: 40px;
+    color: #09161f;
+}
+
+main {
+    background-image: none;
+    color: white;
+    padding: 1% 2%;
+}
+
+main img {
+    float: left;
+    margin-right: 30px;
+}
+
+main h3 {
+    margin: 10px 0 30px 0;
+}
+
+.info-film {
+    margin-left: 200px;
+}
+
+main ul {
+    list-style: square;
+    margin-left: 30px;
+}
+
+#video-part {
+    text-align: center;
+}
+
+iframe {
+    -webkit-box-shadow: 1px 3px 15px 16px #999999;
+    box-shadow: 1px 3px 15px 16px #999999;
+}

@@ -1,0 +1,23 @@
+@media (min-width: 1000px) {
+
+    .row {
+        padding: 2%;
+        text-align: center;
+        background-color: #09161f;
+    }
+
+    .row img {
+        transition: width 1s;
+        width: 100%;
+    }
+
+    .row img:hover {
+        width: 105%;
+    }
+
+    .col-lg-2 img {
+        display: initial;
+    }
+
+
+}
