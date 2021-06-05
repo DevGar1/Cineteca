@@ -1,15 +1,39 @@
+import {getMovie} from './single-Movie.js';
+
 const showFilm = (film) => {
     const {srcElement} = film;
     const {alt} = srcElement;
-    console.log(`${location.origin}/proyecto-Final/pages/single-movie?name=${alt}`);
     location.href = `${location.origin}/proyecto-Final/pages/single-movie.html?name=${alt}`;
 }
-const init = () => {
-    const btnSearch = document.getElementsByClassName('option');
-    for (let img of btnSearch) {
-        img.addEventListener('click', showFilm);
+
+const redirect = (titleFilm) => {
+    location.href = `${location.origin}/proyecto-Final/pages/single-movie.html?name=${titleFilm}`;
+}
+const setAlert = () => {
+    const alert = document.getElementsByClassName('alert');
+    alert[0].style.display = 'block'
+}
+const searchMovie = async () => {
+    try {
+        let title = document.getElementById("search-input");
+        title = title.value;
+        let movie = await getMovie(title);
+        movie = await movie.json();
+        if (movie.hasOwnProperty('Title')) {
+            const {Title} = movie;
+            redirect(Title);
+        } else {
+            setAlert();
+        }
+    } catch (e) {
+        setAlert()
     }
 };
+
+export const activeSearchBtn = () => {
+    const btn = document.getElementById('search-btn');
+    btn.addEventListener('click', searchMovie);
+}
 
 
 const activeBtn = () => {
@@ -22,18 +46,17 @@ const activeBtn = () => {
     btnUp.addEventListener('click', () => {
         location.href = `${location.origin}/proyecto-Final/pages/sign-up.html`;
     });
-
+    activeSearchBtn();
 }
 
 
-const searchMovie = () => {
-    const title = document.getElementById('search-input').value;
-
+const init = () => {
+    const btnSearch = document.getElementsByClassName('option');
+    for (let img of btnSearch) {
+        img.addEventListener('click', showFilm);
+    }
+    activeBtn();
 };
 
-export const activeSearchBtn = () => {
-    const btn = document.getElementById('search-btn');
-
-}
 
 init();

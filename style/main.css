@@ -92,7 +92,7 @@ main {
 .search-movie {
     margin: auto;
     align-self: center;
-    width: 600px;
+    width: 650px;
     height: 250px;
     background-color: white;
     border-radius: 11px;
@@ -101,3 +101,12 @@ main {
 }
 
 
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.alert {
+    display: none;
+}

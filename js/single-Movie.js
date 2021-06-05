@@ -83,11 +83,12 @@ const createDom = async (response) => {
     const actorsDiv = document.createElement('div');
     const actorsTitle = createAndSetElement('h3', 'Actors: ');
     actorsDiv.append(actorsTitle, actorsElement)
-
     const container = document.getElementById('mainContainer');
+    if (container) {
+        info.append(dataFilm, descriptorDiv, actorsDiv);
+        container.append(titleElement, posterFilm, info);
+    }
 
-    info.append(dataFilm, descriptorDiv, actorsDiv);
-    container.append(titleElement, posterFilm, info);
 
 }
 
@@ -111,17 +112,28 @@ const insertElementYoutube = async (data) => {
     video.title = 'Youtube video player';
     video.frameborder = '0';
     video.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    div.append(video);
+    if (div) {
+        div.append(video);
+    }
 }
+export const getMovie = async (filmTitle) => {
+    try {
+        return await fetch(`https://www.omdbapi.com/?t=${filmTitle}&apikey=${keys.movies_key}`);
+    } catch (e) {
+        throw 'Film not found';
+    }
 
+}
 const init = async () => {
     const filmTitle = getFilmInfo();
-    let response = await fetch(`https://www.omdbapi.com/?t=${filmTitle}&apikey=${keys.movies_key}`);
+    let response = await getMovie(filmTitle);
     response = await response.json();
     await createDom(response);
     const {Title} = response;
     const youtubeData = await getDataYoutube(Title);
     await insertElementYoutube(youtubeData);
+
+
 }
 
 init().then().catch();

@@ -31,11 +31,17 @@
         <h2>La mejor página de películas</h2>
         <h5>Más de 3000 Películas, Series, Documentales, Caricaturas aptas para todo mommento</h5>
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Buscar por nombre"
-                   aria-label="Example text with button addon"
-                   aria-describedby="button-addon1" id="search-input">
-            <button id="search-btn" class="btn btn-secondary search-movie-btn" type="button"><i class="fas fa-search"></i>
-            </button>
+            <div class="flex-content">
+                <input type="text" class="form-control" placeholder="Buscar por nombre"
+                       aria-label="Example text with button addon"
+                       aria-describedby="button-addon1" id="search-input">
+                <button id="search-btn" class="btn btn-secondary search-movie-btn" type="button"><i
+                        class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="alert alert-danger" role="alert">
+                Película no encontrada.
+            </div>
         </div>
     </div>
 </main>
