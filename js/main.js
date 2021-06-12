@@ -1,24 +1,31 @@
-import {getMovie} from './single-Movie.js';
-
-const showFilm = (film) => {
-    const {srcElement} = film;
-    const {alt} = srcElement;
-    location.href = `${location.origin}/proyecto-Final/pages/single-movie.html?name=${alt}`;
-}
+import {getUrlMovie} from "./movieApi.js";
+import {requestApi} from "./single-Movie.js";
 
 const redirect = (titleFilm) => {
-    location.href = `${location.origin}/proyecto-Final/pages/single-movie.html?name=${titleFilm}`;
+    location.href = `${location.origin}/Cineteca/pages/single-movie.html?name=${titleFilm}`;
 }
+
+const showFilmPage = (filmName) => {
+    const {srcElement} = filmName;
+    const {alt} = srcElement;
+    redirect(alt);
+}
+
+const changePage = (path) => {
+    location.href = `${location.origin}/Cineteca/pages/${path}.html`;
+}
+
 const setAlert = () => {
     const alert = document.getElementsByClassName('alert');
     alert[0].style.display = 'block'
 }
+
 const searchMovie = async () => {
     try {
         let title = document.getElementById("search-input");
         title = title.value;
-        let movie = await getMovie(title);
-        movie = await movie.json();
+        const urlMovie = getUrlMovie(title)
+        const movie = await requestApi(urlMovie);
         if (movie.hasOwnProperty('Title')) {
             const {Title} = movie;
             redirect(Title);
@@ -41,10 +48,10 @@ const activeBtn = () => {
     const btnUp = document.getElementById('sign-up');
 
     btnIn.addEventListener('click', () => {
-        location.href = `${location.origin}/proyecto-Final/pages/sign-in.html`;
+        changePage('sign-in');
     });
     btnUp.addEventListener('click', () => {
-        location.href = `${location.origin}/proyecto-Final/pages/sign-up.html`;
+        changePage('sign-up')
     });
     activeSearchBtn();
 }
@@ -53,7 +60,7 @@ const activeBtn = () => {
 const init = () => {
     const btnSearch = document.getElementsByClassName('option');
     for (let img of btnSearch) {
-        img.addEventListener('click', showFilm);
+        img.addEventListener('click', showFilmPage);
     }
     activeBtn();
 };
