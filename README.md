@@ -2,7 +2,7 @@
 Proyecto de práctica que simula un servicio de Streaming sobre peliculas
 
 
-![github-large](img.png)
+![github-large](portada.png)
 
 ![github-large](img1.png)
 
