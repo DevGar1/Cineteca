@@ -2,7 +2,7 @@ import {getUrlMovie} from "./movieApi.js";
 import {requestApi} from "./single-Movie.js";
 
 const redirect = (titleFilm) => {
-    location.href = `${location.origin}/Cineteca/pages/single-movie.html?name=${titleFilm}`;
+    location.href = `${location.origin}/pages/single-movie.html?name=${titleFilm}`;
 }
 
 const showFilmPage = (filmName) => {
@@ -12,7 +12,7 @@ const showFilmPage = (filmName) => {
 }
 
 const changePage = (path) => {
-    location.href = `${location.origin}/Cineteca/pages/${path}.html`;
+    location.href = `${location.origin}/pages/${path}.html`;
 }
 
 const setAlert = () => {
