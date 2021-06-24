@@ -18,7 +18,7 @@ const initDom = () => {
     }
 
     if (flag === 0) {
-        location.href = `${location.origin}/proyecto-Final/pages/single-movie.html?name=nwa`;
+        location.href = `${location.origin}/Cineteca/pages/single-movie.html?name=nwa`;
     }
 }
 
